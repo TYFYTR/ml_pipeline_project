@@ -1,6 +1,8 @@
 from src.preprocessing import load_california_data, make_features_and_target, split_train_test
 from src.models import train_linear_regression, predict
-from src.evaluation import evaluate_regression
+from src.evaluation import evaluate_regression, plot_actual_vs_predicted
+
+
 
 
 def main():
@@ -27,6 +29,10 @@ def main():
     print(f"  RMSE: {metrics['rmse']:.4f}")
     print(f"  MAE : {metrics['mae']:.4f}")
     print(f"  R²  : {metrics['r2']:.4f}")
+
+    # Visualize predictions vs actual values
+    plot_actual_vs_predicted(y_test, y_pred)
+
 
 
 if __name__ == "__main__":
