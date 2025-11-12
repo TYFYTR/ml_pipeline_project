@@ -5,9 +5,6 @@ import matplotlib.pyplot as plt
 import pandas as pd 
 
 
-
-
-
 def main():
     # 1. Load full dataset
     df = load_california_data()

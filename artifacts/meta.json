@@ -1,0 +1,47 @@
+{
+  "csv": "C:\\Users\\tyfyt\\OneDrive\\Desktop\\ML Programs 2025\\ml_pipeline_project\\Housing.csv",
+  "rows": 545,
+  "raw_feature_cols": [
+    "area",
+    "bedrooms",
+    "bathrooms",
+    "stories",
+    "mainroad",
+    "guestroom",
+    "basement",
+    "hotwaterheating",
+    "airconditioning",
+    "parking",
+    "prefarea",
+    "furnishingstatus"
+  ],
+  "numeric_cols": [
+    "area",
+    "bedrooms",
+    "bathrooms",
+    "stories",
+    "parking"
+  ],
+  "categorical_cols": [
+    "mainroad",
+    "guestroom",
+    "basement",
+    "hotwaterheating",
+    "airconditioning",
+    "prefarea",
+    "furnishingstatus"
+  ],
+  "target": "price",
+  "X_processed_shape": [
+    545,
+    20
+  ],
+  "y_log_shape": [
+    545
+  ],
+  "kfold": {
+    "n_splits": 5,
+    "shuffle": true,
+    "random_state": 42
+  }
+}
