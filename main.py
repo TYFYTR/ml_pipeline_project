@@ -1,4 +1,6 @@
 from src.preprocessing import load_california_data, make_features_and_target, split_train_test
+from src.models import train_linear_regression, predict
+from src.evaluation import evaluate_regression
 
 
 def main():
@@ -8,17 +10,23 @@ def main():
     # 2. Split into features and target
     X, y = make_features_and_target(df)
 
-    # 3. Split into train/test sets
+    # 3. Train/test split
     X_train, X_test, y_train, y_test = split_train_test(X, y)
 
-    # 4. Quick sanity checks
-    print("Full data shape:", df.shape)
-    print("X (features) shape:", X.shape)
-    print("y (target) shape:", y.shape)
-    print("X_train shape:", X_train.shape)
-    print("X_test shape:", X_test.shape)
-    print("y_train shape:", y_train.shape)
-    print("y_test shape:", y_test.shape)
+    # 4. Train the model
+    model = train_linear_regression(X_train, y_train)
+
+    # 5. Make predictions on the test set
+    y_pred = predict(model, X_test)
+
+    # 6. Evaluate the model
+    metrics = evaluate_regression(y_test, y_pred)
+
+    print("Evaluation metrics for Linear Regression:")
+    print(f"  MSE : {metrics['mse']:.4f}")
+    print(f"  RMSE: {metrics['rmse']:.4f}")
+    print(f"  MAE : {metrics['mae']:.4f}")
+    print(f"  R²  : {metrics['r2']:.4f}")
 
 
 if __name__ == "__main__":
